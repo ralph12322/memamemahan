@@ -1,0 +1,16 @@
+import express from 'express';
+import cors from 'cors';
+import translateRoute from './routes/translateRoute.js' //using translationg api here go to controllers to see the api
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors()); // yung frontend URL origin ang i specify
+app.use(express.json());
+
+
+app.post('/translate', translateRoute);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
