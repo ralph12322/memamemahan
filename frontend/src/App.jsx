@@ -134,6 +134,7 @@ export default function EmoVox() {
   const [loading, setLoading] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [emoticon, setEmoticon] = useState(null)
+  const [emotion, setEmotion] = useState(null)
 
   // Speech Synthesis states
   const [selectedVoice, setSelectedVoice] = useState(null);
@@ -174,12 +175,14 @@ export default function EmoVox() {
     setLoading(true);
     try {
       const res = await axios.post('https://sofengbackend.onrender.com/translate', {
+      // const res = await axios.post('http://localhost:3000/translate', {
         from,
         text,
         to,
       });
       // Expecting res.data.translatedText in the response.
       setTranslated(res.data.translatedText);
+      setEmotion(res.data.emotion)
     } catch (error) {
       console.error(error);
       setTranslated('Translation failed.');
@@ -285,7 +288,7 @@ export default function EmoVox() {
             <label>Source</label>
             {/* Fixed Source as English */}
             <div className="language-dropdown">
-            <select value={from} onChange={(e) => setFrom(e.target.value)}>
+              <select value={from} onChange={(e) => setFrom(e.target.value)}>
                 {Object.entries(languages).map(([code, name]) => (
                   <option key={code} value={code}>
                     {name}
@@ -417,8 +420,8 @@ export default function EmoVox() {
         <div className="emotion-display">
           <div className="emotion-icon">💩</div>
           <div className="emotion-text">
-            <h4>Emotion Analysis: Positive &amp; Friendly</h4>
-            <h3 className='font-extrabold black'>{emoticon}</h3>
+            <h4>You Will see your emotions here.</h4>
+            <h3 className='font-extrabold black'>{emotion}</h3>
             <p>
               The text conveys happiness and warmth. Tone is upbeat with 85%
               confidence.

@@ -1,14 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-import translateRoute from './routes/translateRoute.js' //using translationg api here go to controllers to see the api
+import translateRoute from './routes/translateRoute.js'
+import 'dotenv/config';
 
-// npm install express cors @vitalets/google-translate-api
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'https://emovox.vercel.app', // Remove trailing slash
+  origin: ['https://emovox.vercel.app', 'http://localhost:5173'],
 }));
 
 
