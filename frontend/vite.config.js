@@ -7,9 +7,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  build: {
-    rollupOptions: {
-      external: ['axios'],
-    },
-  },
 });
