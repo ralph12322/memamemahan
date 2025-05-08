@@ -1,4 +1,4 @@
-import OpenAI from 'openai'
+import OpenAI from 'openai';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -7,7 +7,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const getEmotions = async (text) => {
+export const getEmotions = async (text) => {
 
     
     try {
@@ -24,5 +24,3 @@ const getEmotions = async (text) => {
         console.error('Error from OpenAI API:', error);
     }
 }
-
-export default getEmotions

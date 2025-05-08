@@ -113,18 +113,6 @@ const languages = {
   "zu": "Zulu"
 };
 
-const emotions = {
-  happy: "You're Happy",
-  sad: "You're Sad",
-  angry: "You're Angry",
-  nervous: "Your're Nervous",
-  horny: "You feel Horny as Fuck! Ugh!",
-  mad: "let me crush your melons!",
-  excitement: "let me suck your *its"
-}
-
-const keys = Object.keys(emotions);
-
 export default function EmoVox() {
   // Functional states
   const [text, setText] = useState('');
@@ -133,7 +121,6 @@ export default function EmoVox() {
   const [translated, setTranslated] = useState('');
   const [loading, setLoading] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [emoticon, setEmoticon] = useState(null)
   const [emotion, setEmotion] = useState(null)
 
   // Speech Synthesis states
@@ -188,7 +175,6 @@ export default function EmoVox() {
       setTranslated('Translation failed.');
     } finally {
       setLoading(false);
-      setEmoticon(emotions[keys[Math.floor(Math.random() * keys.length)]])
     }
   };
 
