@@ -7,7 +7,11 @@ import translateRoute from './routes/translateRoute.js' //using translationg api
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // yung frontend URL origin ang i specify
+app.use(cors({
+  origin: 'https://emovox.vercel.app',
+})); // yung frontend URL origin ang i specify
+
+
 app.use(express.json());
 
 
