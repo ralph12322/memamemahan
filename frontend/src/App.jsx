@@ -158,7 +158,6 @@ export default function EmoVox() {
 
   // Handle the translation request via Axios
   const handleTranslate = async () => {
-    setEmoticon('')
     setLoading(true);
     try {
       const res = await axios.post('https://sofengbackend.onrender.com/translate', {
