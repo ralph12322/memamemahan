@@ -266,6 +266,8 @@ export default function EmoVox() {
         <button className="btn btn-gradient">Start Translating</button>
       </section>
 
+      <h1>Hellp</h1>
+
       {/* Translator Section */}
       <section className="translator-container glass-card">
         {/* Language Selector */}
