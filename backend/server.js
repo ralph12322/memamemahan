@@ -17,7 +17,8 @@ app.use(cors({
 app.use(express.json());
 
 
-app.post('/translate', translateRoute);
+// app.post('/translate', translateRoute); app.use dapat kasi nasa server ka palang
+app.use('/translate', translateRoute)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
