@@ -174,8 +174,8 @@ export default function EmoVox() {
     setEmoticon('')
     setLoading(true);
     try {
-      const res = await axios.post('https://sofengbackend.onrender.com/translate', {
-      // const res = await axios.post('http://localhost:3000/translate', {
+      // const res = await axios.post('https://sofengbackend.onrender.com/translate', {
+      const res = await axios.post('http://localhost:3000/translate', {
         from,
         text,
         to,
@@ -277,14 +277,13 @@ export default function EmoVox() {
           Emo <span className="gradient-text">VOX</span>
         </h1>
         <p>Decoding feelings, one word at a time.</p>
-        <button className="btn btn-gradient">Start Translating</button>
       </section>
 
       {/* Translator Section */}
       <section className="translator-container glass-card">
         {/* Language Selector */}
         <div className="language-selector">
-          <div className="language-box">
+          <div className="language-box ">
             <label>Source</label>
             {/* Fixed Source as English */}
             <div className="language-dropdown">
@@ -436,7 +435,7 @@ export default function EmoVox() {
           <div className="footer-column">
             <h4>Contact</h4>
             <p>+0999-1929-239</p>
-            <div className="social-links">
+            {/* <div className="social-links">
               <a href="#">
                 <img
                   src="./img/facebook-fill-svgrepo-com.svg"
@@ -455,7 +454,7 @@ export default function EmoVox() {
                   alt="GitHub"
                 />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
         <p className="copyright">
