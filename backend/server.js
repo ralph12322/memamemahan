@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'https://emovox.vercel.app',
+  origin: 'https://emovox.vercel.app/',
 })); // yung frontend URL origin ang i specify
 
 
