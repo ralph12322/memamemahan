@@ -116,7 +116,7 @@ const languages = {
 export default function EmoVox() {
   // Functional states
   const [text, setText] = useState('');
-  const [to, setTo] = useState('es');
+  const [to, setTo] = useState('tl');
   const [from, setFrom] = useState('en');
   const [translated, setTranslated] = useState('');
   const [loading, setLoading] = useState(false);
@@ -291,7 +291,7 @@ export default function EmoVox() {
           >
             <ArrowRightLeft className="w-6 h-6" />
           </button>
-
+          {/* target language tagalog fixed */}
           <div className="language-box">
             <label>Target</label>
             <div className="language-dropdown">
