@@ -8,7 +8,7 @@ const openai = new OpenAI({
 
 const getEmotions = async (text) => {
 
-    
+    console.log('working')
     try {
         const completion = await openai.chat.completions.create({
             model: 'gpt-4',
