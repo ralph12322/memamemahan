@@ -328,12 +328,6 @@ export default function EmoVox() {
                 <Mic className="w-5 h-5" />{" "}
                 {isRecording ? "Listening..." : "Voice input"}
               </button>
-              <button
-                className="action-btn"
-                onClick={() => alert("History feature coming soon!")}
-              >
-                History
-              </button>
             </div>
           </div>
 
