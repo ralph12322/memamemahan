@@ -280,6 +280,7 @@ main {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1rem;
+
 }
 
 .dark-mode .language-dropdown select {
@@ -664,12 +665,8 @@ footer:before {
 
 @media only screen and (max-width:467px) {
   select {
-    max-width: 100px;
+    max-width: 100%;
   }
 }
 
-@media only screen and (max-width:380px) {
-  select {
-    max-width: 20px;
-  }
-}
+
