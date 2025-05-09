@@ -323,6 +323,7 @@ main {
 @media (max-width: 768px) {
   .translation-area {
     flex-direction: column;
+  
   }
 }
 
@@ -644,13 +645,6 @@ footer:before {
 /* Responsive */
 
 @media only screen and (max-width:939px) {
-  .nav-actions {
-    display: none;
-  }
-
-  .nav-links {
-    display: none;
-  }
 
   .burger-icon {
     display: block;
