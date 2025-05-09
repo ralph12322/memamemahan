@@ -399,7 +399,7 @@ export default function EmoVox() {
           <div className="emotion-icon">💩</div>
           <div className="emotion-text">
             <h4>You Will see your emotions here.</h4>
-            <h3 className='font-extrabold black'>{emotion}</h3>
+            <h3 className='font-extrabold black' style={{color:'red'}}>{emotion}</h3>
             <p>
               The text conveys happiness and warmth. Tone is upbeat with 85%
               confidence.
