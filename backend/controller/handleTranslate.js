@@ -22,13 +22,12 @@ export const translate = async (req, res) => {
     if (!translated) {
       return res.status(500).json({ error: 'Failed to get translation' });
     }
-    let emotion = await getEmotionsv2(text);
-    let warning = "api used: OPENAI"
-    if(!emotion){
-      warning = "api used: error in OPENAPI now using TWINWORD";
+    let result = await getEmotionsv2(text);
+
+    if(!result || !result.emotion){
       emotion = await getEmotions(text)
     }
-    res.json({ translatedText: translated, emotion: emotion, warning: warning });
+    res.json({ translatedText: translated, emotion: result.emotion, warning: result.source });
   } catch (error) {
     console.error('Translation error:', error);
     res.status(500).json({ error: 'Translation failed.' });

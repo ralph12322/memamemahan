@@ -11,7 +11,6 @@ const openai = new OpenAI({
 
 export const getEmotions = async (text) => {
 
-    console.log('working')
     try {
         const completion = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
@@ -21,7 +20,9 @@ export const getEmotions = async (text) => {
             ],
         });
 
-        return completion.choices[0].message.content
+        const message = "OPENAI used"
+
+        return {emotion : completion.choices[0].message.content, source: message }
     } catch (error) {
         console.error('Error from OpenAI API:', error);
     }
@@ -48,13 +49,14 @@ export const getEmotionsv2 = async (text) => {
 				twinRes.on('data', (chunk) => chunks.push(chunk));
 				twinRes.on('end', () => {
 					try {
+                        const message = "TWINWORD used"
 						const body = Buffer.concat(chunks).toString();
 						const json = JSON.parse(body);
 					
 						console.log('Twinword response:', json);
 
 						if (json.emotions_detected && json.emotions_detected.length > 0) {
-							resolve(json.emotions_detected[0]);
+							resolve({emotion: json.emotions_detected[0], source: message});
 						} else {
 							resolve("neutral"); 
 						}
