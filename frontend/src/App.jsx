@@ -169,7 +169,7 @@ export default function EmoVox() {
       // Expecting res.data.translatedText in the response.
       setTranslated(res.data.translatedText);
       setEmotion(res.data.emotion)
-      console.log(res.data.emotion)
+      console.log(res.data.warning);
     } catch (error) {
       console.error(error);
       setTranslated('Translation failed.');
