@@ -23,9 +23,9 @@ export const translate = async (req, res) => {
       return res.status(500).json({ error: 'Failed to get translation' });
     }
     let emotion = await getEmotions(text);
-    let warning = null
+    let warning = "api used: OPENAI"
     if(!emotion){
-      warning = "error in OPENAPI now using TWINWORD";
+      warning = "api used: error in OPENAPI now using TWINWORD";
       emotion = await getEmotionsv2(text)
     }
     res.json({ translatedText: translated, emotion: emotion, warning: warning });
