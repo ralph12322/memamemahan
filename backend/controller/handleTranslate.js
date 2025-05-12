@@ -25,7 +25,7 @@ export const translate = async (req, res) => {
     let result = await getEmotionsv2(text);
 
     if(!result || !result.emotion){
-      emotion = await getEmotions(text)
+      result = await getEmotions(text)
     }
     res.json({ translatedText: translated, emotion: result.emotion, warning: result.source });
   } catch (error) {
