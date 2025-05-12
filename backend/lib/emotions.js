@@ -14,7 +14,7 @@ export const getEmotions = async (text) => {
     console.log('working')
     try {
         const completion = await openai.chat.completions.create({
-            model: 'gpt-4',
+            model: 'gpt-3.5-turbo',
             messages: [
                 { role: 'system', content: 'Just give me the emotion based on this text I gave you, just return me the emotion nothing else. If its other language translate it and give the emotions' },
                 { role: 'user', content: text }

@@ -235,7 +235,7 @@ export default function EmoVox() {
 
   return (
     <main className="main h-screen w-screen bg-bg text-text">
-      {/* Header */}
+
       <header className="glass-card">
         <nav>
           <div className="logo">
@@ -257,7 +257,6 @@ export default function EmoVox() {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section className="hero">
         <h1>
           Emo <span className="gradient-text">VOX</span>
@@ -400,7 +399,7 @@ export default function EmoVox() {
           <div className="emotion-icon">💩</div>
           <div className="emotion-text">
             <h4>You Will see your emotions here.</h4>
-            <h3 className='font-extrabold black'>{emotion}</h3>
+            <h3 className='font-extrabold black' style={{color:'red'}}>{emotion}</h3>
             <p>
               The text conveys happiness and warmth. Tone is upbeat with 85%
               confidence.
@@ -413,28 +412,7 @@ export default function EmoVox() {
       <footer>
         <div className="footer-content">
           <div className="footer-column">
-            <h4>Contact</h4>
-            <p>+0999-1929-239</p>
-            {/* <div className="social-links">
-              <a href="#">
-                <img
-                  src="./img/facebook-fill-svgrepo-com.svg"
-                  alt="Facebook"
-                />
-              </a>
-              <a href="#">
-                <img
-                  src="./img/discord-fill-svgrepo-com.svg"
-                  alt="Discord"
-                />
-              </a>
-              <a href="#">
-                <img
-                  src="./img/github-fill-svgrepo-com.svg"
-                  alt="GitHub"
-                />
-              </a>
-            </div> */}
+
           </div>
         </div>
         <p className="copyright">

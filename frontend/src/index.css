@@ -205,15 +205,16 @@ nav {
 }
 
 main {
-  max-width: 1400px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+  padding: 0 5%;
+  overflow-x:hidden ;
+
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-top: 1rem;
   padding: 0 1rem;
+  overflow-x: hidden;
 }
 
 .hero h1 {
@@ -323,6 +324,7 @@ main {
 @media (max-width: 768px) {
   .translation-area {
     flex-direction: column;
+
   }
 }
 
@@ -644,13 +646,6 @@ footer:before {
 /* Responsive */
 
 @media only screen and (max-width:939px) {
-  .nav-actions {
-    display: none;
-  }
-
-  .nav-links {
-    display: none;
-  }
 
   .burger-icon {
     display: block;
@@ -668,5 +663,3 @@ footer:before {
     max-width: 100%;
   }
 }
-
-
