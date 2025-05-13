@@ -6,7 +6,7 @@ import { stringify as qsStringify } from 'querystring';
 dotenv.config();
 
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    // apiKey: process.env.OPENAI_API_KEY,
 });
 
 export const getEmotions = async (text) => {
@@ -31,14 +31,14 @@ export const getEmotions = async (text) => {
 export const getEmotionsv2 = async (text) => {
 	try {
 		const options = {
-			method: 'POST',
-			hostname: 'twinword-emotion-analysis-v1.p.rapidapi.com',
-			port: null,
-			path: '/analyze/',
-			headers: {
-				'x-rapidapi-key': process.env.RAPIDAPI_KEY,
-				'x-rapidapi-host': process.env.RAPIDAPI_HOST,
-				'Content-Type': 'application/x-www-form-urlencoded'
+			// method: 'POST',
+			// hostname: 'twinword-emotion-analysis-v1.p.rapidapi.com',
+			// port: null,
+			// path: '/analyze/',
+			// headers: {
+			// 	'x-rapidapi-key': process.env.RAPIDAPI_KEY,
+			// 	'x-rapidapi-host': process.env.RAPIDAPI_HOST,
+			// 	'Content-Type': 'application/x-www-form-urlencoded'
 			}
 		};
 
