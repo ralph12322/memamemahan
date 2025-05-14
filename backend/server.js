@@ -18,7 +18,7 @@ app.use(express.json());
 // app.post('/translate', translateRoute); app.use dapat kasi nasa server ka palang
 app.use('/translate', translateRoute)
 app.use('/', (req, res) => {
-  res.send('Working')
+  res.send('BACKEND IS WORKING')
 })
 
 app.listen(PORT, () => {
