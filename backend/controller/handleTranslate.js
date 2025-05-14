@@ -24,7 +24,7 @@ export const translate = async (req, res) => {
     }
 
     //this part handles the emotion analysis, if the twinword can't identify the emotion that's when we use the gpt4
-    let result = await getEmotions(text);
+    let result = await getEmotionsv2(text);
     //usually complex text gets hard for twinword api, such as long messages, complex words, etc.
     // if(!result || !result.emotion){
     //   result = await getEmotions(text)
