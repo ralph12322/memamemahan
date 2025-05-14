@@ -27,13 +27,15 @@ export const translate = async (req, res) => {
     let result = await getEmotionsv2(text);
     //usually complex text gets hard for twinword api, such as long messages, complex words, etc.
     if(!result || !result.emotion){
-      result = await getEmotions(text)
-    } else{
-      result = {
+      result = await getEmotions(text);
+      if(!result || !result.emotion){
+        result = {
         emotion: "neutral",
         source: "No API USED"
+        }
       }
-    }
+    } 
+      
     res.json({ translatedText: translated, emotion: result.emotion, warning: result.source });
   } catch (error) {
     console.error('Translation error:', error);
