@@ -59,7 +59,7 @@ export const getEmotionsv2 = async (text) => {
 							resolve({emotion: json.emotions_detected[0], source: message});
 						} 
 						else{
-							resolve({emotion: null, source: null});
+							resolve({emotion: undefined, source:undefined});
 						}
 					} catch (err) {
 						reject(new Error('Failed to parse response as JSON'));
