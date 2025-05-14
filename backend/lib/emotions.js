@@ -72,8 +72,10 @@ export const getEmotionsv2 = async (text) => {
 
 			twinReq.write(qsStringify({ text }));
 			twinReq.end();
-		});
 
+			return emotion
+		});
+	
 	} catch (error) {
 		console.error('Error from Twinword API:', error);
 		return "error";
