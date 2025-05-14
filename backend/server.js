@@ -16,10 +16,10 @@ app.use(express.json());
 
 
 // app.post('/translate', translateRoute); app.use dapat kasi nasa server ka palang
+app.use('/translate', translateRoute)
 app.use('/', (req, res) => {
   res.send('Working')
 })
-app.use('/translate', translateRoute)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
