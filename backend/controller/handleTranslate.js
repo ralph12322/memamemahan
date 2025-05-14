@@ -24,17 +24,17 @@ export const translate = async (req, res) => {
     }
 
     //this part handles the emotion analysis, if the twinword can't identify the emotion that's when we use the gpt4
-    let result = await getEmotions(text);
-    //usually complex text gets hard for twinword api, such as long messages, complex words, etc.
-    // if(!result || !result.emotion){
-    //   result = await getEmotions(text);
-    //   console.log('Twin used')
+    let result = await getEmotionsv2(text);
+    usually complex text gets hard for twinword api, such as long messages, complex words, etc.
+    if(!result || !result.emotion){
+      result = await getEmotions(text);
+        res.json({ translatedText:translated , emotion:"neutral", warning: "no API Used" });
 
-    //   if(!result || !result.emotion){
-    //     res.json({ translatedText:translated , emotion:"neutral", warning: "no API Used" });
-    //   }
-    // } 
-    console.log('Chat gpt used')
+      if(!result || !result.emotion){
+        res.json({ translatedText:translated , emotion:"neutral", warning: "no API Used" });
+      }
+    } 
+    
     res.json({ translatedText: translated, emotion: result.emotion, warning: result.source });
   } catch (error) {
     console.error('Translation error:', error);
