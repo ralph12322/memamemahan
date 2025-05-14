@@ -12,6 +12,8 @@ app.use(cors({
   origin: ['https://emovox.vercel.app', 'http://localhost:5174'],
 }));
 
+app.options('*', cors()); // Enable preflight across-the-board 
+
 app.use(express.json());
 
 
