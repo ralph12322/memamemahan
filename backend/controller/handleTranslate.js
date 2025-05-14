@@ -4,7 +4,7 @@ import {getEmotions, getEmotionsv2 } from '../lib/emotions.js';
 export const translate = async (req, res) => {
   const LINGVA_BASE_URL = 'https://lingva-translate-brw0.onrender.com';
   const { from, text, to } = req.body;
-
+  console.log('im here')
   if(!LINGVA_BASE_URL) {
     console.log("mistake")
   }
@@ -30,6 +30,7 @@ export const translate = async (req, res) => {
     result = await getEmotions(text)
     console.log(result)
     } 
+  
     res.json({ translatedText: translated, emotion: result.emotion, message: result.source});
   } catch (error) {
     console.error('Translation error:', error);
