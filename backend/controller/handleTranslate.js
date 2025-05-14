@@ -29,9 +29,6 @@ export const translate = async (req, res) => {
     if(!result || !result.emotion){
       result = await getEmotions(text);
     } 
-    if(!result || !result.emotion){
-      result = {emotion: "neutral", source: "No API Used"};
-    } 
     
     res.json({ translatedText: translated, emotion: result.emotion, warning: result.source });
   } catch (error) {
