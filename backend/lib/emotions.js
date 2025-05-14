@@ -58,7 +58,7 @@ export const getEmotionsv2 = async (text) => {
 						if (json.emotions_detected && json.emotions_detected.length > 0) {
 							resolve({emotion: json.emotions_detected[0], source: message});
 						} else {
-							resolve("neutral"); 
+							resolve({emotion: "neutral", source: "none"}); 
 						}
 					} catch (err) {
 						reject(new Error('Failed to parse response as JSON'));
