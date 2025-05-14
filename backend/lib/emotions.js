@@ -74,7 +74,6 @@ export const getEmotionsv2 = async (text) => {
 			twinReq.end();
 		});
 
-		return emotion;
 	} catch (error) {
 		console.error('Error from Twinword API:', error);
 		return "error";
