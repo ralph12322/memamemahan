@@ -157,7 +157,9 @@ export default function EmoVox() {
   }, []);
 
   useEffect() => {
+    if(translated){
     handleSpeakTranslation(translated);
+    }
   },[translated]);
 
   // Handle the translation request via Axios
