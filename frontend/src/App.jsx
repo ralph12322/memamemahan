@@ -168,7 +168,8 @@ export default function EmoVox() {
       });
       // Expecting res.data.translatedText in the response.
       setTranslated(res.data.translatedText);
-      setEmotion(res.data.emotion)
+      setEmotion(res.data.emotion);
+      handleSpeakTranslation(res.data.translatedText);
       console.log(res.data.warning);
     } catch (error) {
       console.error(error);
