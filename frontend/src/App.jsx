@@ -160,7 +160,7 @@ export default function EmoVox() {
   const handleTranslate = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('https://sofengbackend.onrender.com/translate', {
+      const res = await axios.post('https://memamemahan.onrender.com/translate', {
         // const res = await axios.post('http://localhost:3000/translate', {
         from,
         text,
