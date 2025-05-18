@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getEmotions, getEmotionsv2 } from '../lib/emotions.js';
 
 export const translate = async (req, res) => {
-  const LINGVA_BASE_URL = 'https://lingva-translate-brw0.onrender.com';
+  const LINGVA_BASE_URL = 'https://lingva-translate-vi1g.onrender.com';
   const { from, text, to } = req.body;
 
   if (!LINGVA_BASE_URL) {
