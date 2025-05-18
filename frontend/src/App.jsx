@@ -156,7 +156,7 @@ export default function EmoVox() {
     }
   }, []);
 
-  useEffect() => {
+  useEffect(() => {
     if(translated){
     handleSpeakTranslation(translated);
     }
