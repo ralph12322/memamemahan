@@ -397,21 +397,20 @@ export default function EmoVox() {
           <label>
             Select Voice:
             <select
-              value={selectedVoice ? selectedVoice.lang : ''}
-              onChange={(e) => {
-                const voice = voices.find(
-                  (voice) => voice.lang === e.target.value
-                );
-                setSelectedVoice(voice);
-              }}
-              style={{ marginLeft: "0.5rem" }}
-            >
-              {voices.map((voice, index) => (
-                <option key={index} value={voice.lang}>
-                  {voice.name} ({voice.lang})
-                </option>
-              ))}
-            </select>
+  value={selectedVoice ? selectedVoice.name : ''}
+  onChange={(e) => {
+    const voice = voices.find(
+      (voice) => voice.name === e.target.value
+    );
+    setSelectedVoice(voice);
+  }}
+>
+  {voices.map((voice, index) => (
+    <option key={index} value={voice.name}>
+      {voice.name} ({voice.lang})
+    </option>
+  ))}
+</select>
           </label>
         </div>
 
