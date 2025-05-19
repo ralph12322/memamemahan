@@ -234,6 +234,7 @@ export default function EmoVox() {
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     if (selectedVoice) {
       utterance.lang = selectedVoice.lang;
+      utterance.voice = selectedVoice;
     }
     utterance.rate = 1;
     utterance.pitch = 1;
