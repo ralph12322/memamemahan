@@ -156,12 +156,6 @@ export default function EmoVox() {
     }
   }, []);
 
-  useEffect(() => {
-    if(translated){
-    handleSpeakTranslation(translated);
-    }
-  },[translated]);
-
   // Handle the translation request via Axios
   const handleTranslate = async () => {
     setLoading(true);
@@ -175,6 +169,7 @@ export default function EmoVox() {
       // Expecting res.data.translatedText in the response.
       setTranslated(res.data.translatedText);
       setEmotion(res.data.emotion);
+      handleSpeakTranslation(res.data.translatedText);
       console.log(res.data.warning);
     } catch (error) {
       console.error(error);
