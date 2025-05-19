@@ -141,20 +141,34 @@ export default function EmoVox() {
 
   // Load available voices for text-to-speech
   useEffect(() => {
-    const speechSynthesis = window.speechSynthesis;
-    if (speechSynthesis) {
-      const loadVoices = () => {
-        const availableVoices = speechSynthesis.getVoices();
-        setVoices(availableVoices);
-        const defaultVoice = availableVoices.find(
-          (voice) => voice.lang === 'en-PH'
-        ) || availableVoices[0];
-        setSelectedVoice(defaultVoice);
-      };
-      speechSynthesis.onvoiceschanged = loadVoices;
-      loadVoices();
-    }
-  }, []);
+  const speechSynthesis = window.speechSynthesis;
+
+  if (!speechSynthesis) return;
+
+  const preferredVoiceName = "Google UK English Male"; // use a commonly available voice name
+  const preferredLang = "en-GB"; // broader fallback language
+
+  const loadVoices = () => {
+    const availableVoices = speechSynthesis.getVoices();
+
+    console.log("Available voices:", availableVoices.map(v => `${v.name} (${v.lang})`));
+
+    let matchedVoice =
+      availableVoices.find(voice => voice.name === preferredVoiceName) ||
+      availableVoices.find(voice => voice.lang === preferredLang) ||
+      availableVoices[0]; // fallback to first available
+
+    setVoices(availableVoices);
+    setSelectedVoice(matchedVoice);
+  };
+
+  // some browsers load voices asynchronously
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = loadVoices;
+  }
+
+  loadVoices();
+}, []);
 
   useEffect(() => {
     if(translated){
