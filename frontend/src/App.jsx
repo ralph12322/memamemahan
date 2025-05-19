@@ -427,4 +427,3 @@ export default function EmoVox() {
       </footer>
     </main>
   );
-}
