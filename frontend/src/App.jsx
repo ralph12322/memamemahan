@@ -141,34 +141,20 @@ export default function EmoVox() {
 
   // Load available voices for text-to-speech
   useEffect(() => {
-  const speechSynthesis = window.speechSynthesis;
-
-  if (!speechSynthesis) return;
-
-  const preferredVoiceName = "Google UK English Male"; // use a commonly available voice name
-  const preferredLang = "en-GB"; // broader fallback language
-
-  const loadVoices = () => {
-    const availableVoices = speechSynthesis.getVoices();
-
-    console.log("Available voices:", availableVoices.map(v => `${v.name} (${v.lang})`));
-
-    let matchedVoice =
-      availableVoices.find(voice => voice.name === preferredVoiceName) ||
-      availableVoices.find(voice => voice.lang === preferredLang) ||
-      availableVoices[0]; // fallback to first available
-
-    setVoices(availableVoices);
-    setSelectedVoice(matchedVoice);
-  };
-
-  // some browsers load voices asynchronously
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = loadVoices;
-  }
-
-  loadVoices();
-}, []);
+    const speechSynthesis = window.speechSynthesis;
+    if (speechSynthesis) {
+      const loadVoices = () => {
+        const availableVoices = speechSynthesis.getVoices();
+        setVoices(availableVoices);
+        const defaultVoice = availableVoices.find(
+          (voice) => voice.lang === 'en-PH'
+        ) || availableVoices[0];
+        setSelectedVoice(defaultVoice);
+      };
+      speechSynthesis.onvoiceschanged = loadVoices;
+      loadVoices();
+    }
+  }, []);
 
   useEffect(() => {
     if(translated){
@@ -234,7 +220,6 @@ export default function EmoVox() {
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     if (selectedVoice) {
       utterance.lang = selectedVoice.lang;
-      utterance.voice = selectedVoice;
     }
     utterance.rate = 1;
     utterance.pitch = 1;
@@ -397,20 +382,21 @@ export default function EmoVox() {
           <label>
             Select Voice:
             <select
-  value={selectedVoice ? selectedVoice.name : ''}
-  onChange={(e) => {
-    const voice = voices.find(
-      (voice) => voice.name === e.target.value
-    );
-    setSelectedVoice(voice);
-  }}
->
-  {voices.map((voice, index) => (
-    <option key={index} value={voice.name}>
-      {voice.name} ({voice.lang})
-    </option>
-  ))}
-</select>
+              value={selectedVoice ? selectedVoice.lang : ''}
+              onChange={(e) => {
+                const voice = voices.find(
+                  (voice) => voice.lang === e.target.value
+                );
+                setSelectedVoice(voice);
+              }}
+              style={{ marginLeft: "0.5rem" }}
+            >
+              {voices.map((voice, index) => (
+                <option key={index} value={voice.lang}>
+                  {voice.name} ({voice.lang})
+                </option>
+              ))}
+            </select>
           </label>
         </div>
 
